@@ -1,0 +1,18 @@
+#ifndef DM_SIMD_CONFIG_ISPH
+#define DM_SIMD_CONFIG_ISPH
+
+#define DM_SIMD_ALLOCA_THRESHOLD      4096
+
+#ifdef DM_REAL_AS_FLOAT
+typedef float real;
+#define REAL_FN(name) f##name
+#define REAL_CALL(name) f##name
+#elif DM_REAL_AS_DOUBLE
+typedef double real;
+#define REAL_FN(name) d##name
+#define REAL_CALL(name) d##name
+#else
+  #error unknown real type
+#endif
+
+#endif /* DM_SIMD_CONFIG_ISPH */
